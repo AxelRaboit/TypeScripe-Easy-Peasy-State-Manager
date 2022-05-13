@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, Fragment } from "react";
 import { TodoCard } from "./TodoCard";
 
 import easyPeasyLogo from "../assets/easy-peasy.logo.png";
@@ -23,35 +23,40 @@ export const EasyPeasyTodos = () => {
   }
   
   return (
-    <div className="text-center">
-      <img
-        className="mx-auto"
-        src={easyPeasyLogo}
-        alt="easy-peasy"
-        style={{ height: 200 }}
-      />
-      <h1>Easy Peasy Store ({todosCount})</h1>
-      <h2>Completed todos ({todosCompleted})</h2>
-
-      <div className="flex mt-10">
-        <input
-          className="px-2 py-1 text-white rounded-md bg-zinc-600 w-full"
-          value={input}
-          onChange={(e) => setInput(e.target.value)}
+    <Fragment>
+      <div className="text-center mr-20">
+        <img
+          className="mx-auto"
+          src={easyPeasyLogo}
+          alt="easy-peasy"
+          style={{ height: 200 }}
         />
-        <button
-          className="px-4 py-2 ml-4 font-bold text-white bg-green-500 rounded-md hover:bg-green-400"
-          onClick={handleSubmit}
-        >
-          Submit
-        </button>
-      </div>
 
+        <div className="flex mt-10">
+          <input
+            className="px-2 py-1 text-white rounded-md bg-zinc-600 w-full"
+            value={input}
+            onChange={(e) => setInput(e.target.value)}
+          />
+          <button
+            className="px-4 py-2 ml-4 font-bold text-white bg-green-500 rounded-md hover:bg-green-400"
+            onClick={handleSubmit}
+          >
+            Submit
+          </button>
+        </div>
+
+        <div className="mt-3">
+          <h2 className="mt-3 px-4 py-2 font-bold text-white bg-green-500 rounded-md">Todo number: {todosCount}</h2>
+          <h2 className="mt-3 px-4 py-2 font-bold text-white bg-green-500 rounded-md">Completed todos: {todosCompleted}</h2>
+        </div>
+
+      </div>
       <div className="mt-10">
         {todos.map((todo) => {
           return <TodoCard key={todo.id} todo={todo} />;
         })}
       </div>
-    </div>
+    </Fragment>
   );
 };

@@ -12,7 +12,7 @@ export interface EasyPeasyStore {
 
 const initialState = {
   todos: [
-    /* {
+    {
       id: 1,
       title: "This is a todo example",
       completed: false
@@ -21,7 +21,7 @@ const initialState = {
       id: 2,
       title: "This is another todo example",
       completed: false
-    }, */
+    },
   ] as Todo[],
 };
 

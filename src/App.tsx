@@ -3,7 +3,7 @@ import { EasyPeasyTodos } from "./components/EasyPeasyTodos";
 
 function App() {
   return (
-    <div className="h-px min-h-screen text-white bg-gradient-to-b from-zinc-900 to-stone-900">
+    <div className="min-h-screen text-white bg-gradient-to-b from-zinc-900 to-stone-900">
       <div className="container px-4 pt-40 mx-auto">
         <div className="flex justify-center h-full">
           <EasyPeasyTodos />
