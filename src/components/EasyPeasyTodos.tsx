@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { TodoCard } from "./TodoCard";
 
 import easyPeasyLogo from "../assets/easy-peasy.logo.png";
@@ -10,12 +10,13 @@ export const EasyPeasyTodos = () => {
 
   const [input, setInput] = useState("");
 
-  function handleOnZustandSubmit() {
+  function handleSubmit() {
     if (input) {
       const lastTodo = todos[todos.length - 1];
       addTodo({
         id: lastTodo ? lastTodo.id + 1 : 1,
         title: input,
+        completed: false,
       });
       setInput("");
     }
@@ -39,7 +40,7 @@ export const EasyPeasyTodos = () => {
         />
         <button
           className="px-4 py-2 ml-4 font-bold text-white bg-green-500 rounded-md hover:bg-green-400"
-          onClick={handleOnZustandSubmit}
+          onClick={handleSubmit}
         >
           Submit
         </button>

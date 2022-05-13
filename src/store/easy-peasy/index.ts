@@ -1,4 +1,4 @@
-import { action, Action, computed, Computed, createStore } from "easy-peasy";
+import { action, Action, ActionMapper, computed, Computed, createStore } from "easy-peasy";
 import { Todo } from "../types";
 
 export interface EasyPeasyStore {
@@ -6,6 +6,7 @@ export interface EasyPeasyStore {
   todosCount: Computed<this, number>;
   addTodo: Action<this, Todo>;
   deleteTodo: Action<this, Todo>;
+  toggleTodo: Action<this, Todo>;
 }
 
 const initialState = {
@@ -13,23 +14,38 @@ const initialState = {
     /* {
       id: 1,
       title: "This is a todo example",
+      completed: false
     },
     {
       id: 2,
       title: "This is another todo example",
+      completed: false
     }, */
   ] as Todo[],
 };
 
 export const store = createStore<EasyPeasyStore>({
+  
   ...initialState,
+
   todosCount: computed((state) => {
     return state.todos.length;
   }),
+  
   addTodo: action((state, payload) => {
     state.todos.push(payload);
   }),
+
   deleteTodo: action((state, payload) => {
     state.todos = state.todos.filter(todo => todo.id !== payload.id);
+  }),
+
+  toggleTodo: action((state, payload) => {
+    state.todos.map(todo => {
+      if(todo.id === payload.id) {
+        todo.completed = !todo.completed;
+      }
+      return todo;
+    })
   })
 });
