@@ -5,7 +5,7 @@ import easyPeasyLogo from "../assets/easy-peasy.logo.png";
 import { useStoreActions, useStoreState } from "../store/easy-peasy/hooks";
 
 export const EasyPeasyTodos = () => {
-  const { todos, todosCount } = useStoreState((store) => store);
+  const { todos, todosCount, todosCompleted } = useStoreState((store) => store);
   const { addTodo } = useStoreActions((store) => store);
 
   const [input, setInput] = useState("");
@@ -31,6 +31,7 @@ export const EasyPeasyTodos = () => {
         style={{ height: 200 }}
       />
       <h1>Easy Peasy Store ({todosCount})</h1>
+      <h2>Completed todos ({todosCompleted})</h2>
 
       <div className="flex mt-10">
         <input

@@ -4,6 +4,7 @@ import { Todo } from "../types";
 export interface EasyPeasyStore {
   todos: Todo[];
   todosCount: Computed<this, number>;
+  todosCompleted: Computed<this, number>;
   addTodo: Action<this, Todo>;
   deleteTodo: Action<this, Todo>;
   toggleTodo: Action<this, Todo>;
@@ -30,6 +31,13 @@ export const store = createStore<EasyPeasyStore>({
 
   todosCount: computed((state) => {
     return state.todos.length;
+  }),
+
+  todosCompleted: computed((state) => {
+    const todoList = state.todos.filter((todo) => {
+      return todo.completed === true
+    });
+    return todoList.length
   }),
   
   addTodo: action((state, payload) => {
