@@ -55,11 +55,15 @@ export const TodoCard = ({ todo }: Props) => {
                   className="m-2 px-4 py-2 mt-3 w-3/12 font-bold text-white bg-green-600 rounded-md hover:bg-green-400"
                   onClick={() => handleToggle(todo)}>{todo.completed ? 'Todo' : 'Done'}
                 </button>
-                <button 
-                  className="m-2 px-4 py-2 mt-3 w-3/12 font-bold text-white bg-green-600 rounded-md hover:bg-green-400"
-                  onClick={() => handleEditing(todo)}
-                  >Edit
-                </button>
+
+                {!todo.completed && (
+                  <button 
+                    className="m-2 px-4 py-2 mt-3 w-3/12 font-bold text-white bg-green-600 rounded-md hover:bg-green-400"
+                    onClick={() => handleEditing(todo)}
+                    >Edit
+                  </button>
+                )}
+                
                 <button 
                   className="m-2 px-4 py-2 mt-3 w-3/12 font-bold text-white bg-green-600 rounded-md hover:bg-green-400"
                   onClick={() => handleDelete(todo)}>Delete
