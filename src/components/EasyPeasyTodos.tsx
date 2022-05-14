@@ -37,6 +37,7 @@ export const EasyPeasyTodos = () => {
             className="px-2 py-1 text-white rounded-md bg-zinc-600 w-full"
             value={input}
             onChange={(e) => setInput(e.target.value)}
+            placeholder="Enter a task"
           />
           <button
             className="px-4 py-2 ml-4 font-bold text-white bg-green-500 rounded-md hover:bg-green-400"
@@ -47,8 +48,8 @@ export const EasyPeasyTodos = () => {
         </div>
 
         <div className="mt-3">
-          <h2 className="mt-3 px-4 py-2 font-bold text-white bg-green-500 rounded-md">Todo number: {todosCount}</h2>
-          <h2 className="mt-3 px-4 py-2 font-bold text-white bg-green-500 rounded-md">Completed todos: {todosCompleted}</h2>
+          <h2 className="mt-3 px-4 py-2 font-bold text-white bg-green-500 rounded-md">Todo number: ({todosCount})</h2>
+          <h2 className="mt-3 px-4 py-2 font-bold text-white bg-green-500 rounded-md">Completed todos: ({todosCompleted})</h2>
         </div>
 
       </div>

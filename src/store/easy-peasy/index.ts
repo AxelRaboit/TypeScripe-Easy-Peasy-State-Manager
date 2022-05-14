@@ -8,6 +8,7 @@ export interface EasyPeasyStore {
   addTodo: Action<this, Todo>;
   deleteTodo: Action<this, Todo>;
   toggleTodo: Action<this, Todo>;
+  updateTodo: Action<this, Todo>;
 }
 
 const initialState = {
@@ -54,6 +55,16 @@ export const store = createStore<EasyPeasyStore>({
         todo.completed = !todo.completed;
       }
       return todo;
+    })
+  }),
+
+  updateTodo: action((state, payload) => {
+    state.todos.map(todo => {
+      if(todo.id !== payload.id) {
+        return todo;
+      } else {
+        return todo.title = payload.title
+      }
     })
   })
 });
