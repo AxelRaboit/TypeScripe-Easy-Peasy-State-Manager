@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from "react";
+import React, { Fragment, useRef, useState } from "react";
 import { useStoreActions } from "../store/easy-peasy/hooks";
 import { Todo } from '../store/types'
 
@@ -37,6 +37,11 @@ export const TodoCard = ({ todo }: Props) => {
     setEditTitle(e.target.value);
   }
 
+  const handleCancelEdit = () => {
+    setEditing(false);
+    setEditTitle('');
+};
+
   return (
     <div
       className="w-96 flex px-4 py-4 mb-4 text-base font-light text-left text-gray-900 bg-green-500 rounded-md"
@@ -73,10 +78,17 @@ export const TodoCard = ({ todo }: Props) => {
             : (
               <form onSubmit={handleSubmit}>
                 <input className="px-4 py-2 rounded-md" type="text" defaultValue={todo.title} onChange={(e) => onChangeEditTitle(e)} />
-                <button
-                  className="m-2 px-4 py-2 mt-3 w-3/12 font-bold text-white bg-green-600 rounded-md hover:bg-green-400"
-                  type="submit"
-                >Update</button>
+                <div>
+                  <button
+                    className="m-2 px-4 py-2 mt-3 w-3/12 font-bold text-white bg-green-600 rounded-md hover:bg-green-400"
+                    type="submit"
+                  >Update</button>
+                  <button
+                    className="m-2 px-4 py-2 mt-3 w-3/12 font-bold text-white bg-green-600 rounded-md hover:bg-green-400"
+                    type="button"
+                    onClick={handleCancelEdit}
+                  >Cancel</button>
+                </div>
               </form>
             )
         }
