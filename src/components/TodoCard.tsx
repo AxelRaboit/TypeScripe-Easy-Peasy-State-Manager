@@ -77,7 +77,7 @@ export const TodoCard = ({ todo }: Props) => {
             )
             : (
               <form onSubmit={handleSubmit}>
-                <input className="px-4 py-2 rounded-md" type="text" defaultValue={todo.title} onChange={(e) => onChangeEditTitle(e)} />
+                <input className="px-4 py-2 rounded-md w-full" type="text" defaultValue={todo.title} onChange={(e) => onChangeEditTitle(e)} />
                 <div>
                   <button
                     className="m-2 px-4 py-2 mt-3 w-3/12 font-bold text-white bg-green-600 rounded-md hover:bg-green-400"
