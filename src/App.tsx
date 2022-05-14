@@ -1,4 +1,3 @@
-import React from "react";
 import { EasyPeasyTodos } from "./components/EasyPeasyTodos";
 
 function App() {

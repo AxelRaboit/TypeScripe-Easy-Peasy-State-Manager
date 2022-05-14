@@ -1,4 +1,4 @@
-import { useEffect, useState, Fragment } from "react";
+import { useState, Fragment } from "react";
 import { TodoCard } from "./TodoCard";
 
 import easyPeasyLogo from "../assets/easy-peasy.logo.png";

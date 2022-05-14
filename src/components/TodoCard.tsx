@@ -1,5 +1,5 @@
-import React, { FormEventHandler, Fragment, useState } from "react";
-import { useStoreActions, useStoreState } from "../store/easy-peasy/hooks";
+import React, { Fragment, useState } from "react";
+import { useStoreActions } from "../store/easy-peasy/hooks";
 import { Todo } from '../store/types'
 
 interface Props {
