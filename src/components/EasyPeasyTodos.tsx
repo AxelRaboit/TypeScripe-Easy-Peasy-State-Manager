@@ -10,7 +10,8 @@ export const EasyPeasyTodos = () => {
 
   const [input, setInput] = useState("");
 
-  function handleSubmit() {
+  function handleSubmit(e: React.FormEvent) {
+    e.preventDefault();
     if (input) {
       const lastTodo = todos[todos.length - 1];
       addTodo({
@@ -32,20 +33,22 @@ export const EasyPeasyTodos = () => {
           style={{ height: 200 }}
         />
 
-        <div className="flex mt-10">
-          <input
-            className="px-2 py-1 text-white rounded-md bg-zinc-600 w-full"
-            value={input}
-            onChange={(e) => setInput(e.target.value)}
-            placeholder="Enter a task"
-          />
-          <button
-            className="px-4 py-2 ml-4 font-bold text-white bg-green-500 rounded-md hover:bg-green-400"
-            onClick={handleSubmit}
-          >
-            Submit
-          </button>
-        </div>
+        <form onSubmit={handleSubmit}>
+          <div className="flex mt-10">
+            <input
+              className="px-2 py-1 text-white rounded-md bg-zinc-600 w-full"
+              value={input}
+              onChange={(e) => setInput(e.target.value)}
+              placeholder="Enter a task"
+            />
+            <button
+              className="px-4 py-2 ml-4 font-bold text-white bg-green-500 rounded-md hover:bg-green-400"
+              onClick={handleSubmit}
+            >
+              Submit
+            </button>
+          </div>
+        </form>
 
         <div className="mt-3">
           <h2 className="mt-3 px-4 py-2 font-bold text-white bg-green-500 rounded-md">Todo number: ({todosCount})</h2>
