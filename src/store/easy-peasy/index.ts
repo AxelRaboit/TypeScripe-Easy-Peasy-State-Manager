@@ -1,4 +1,4 @@
-import { action, Action, computed, Computed, createStore } from "easy-peasy";
+import { action, Action, computed, Computed, createStore, persist } from "easy-peasy";
 import { Todo } from "../types";
 
 export interface EasyPeasyStore {
@@ -13,7 +13,7 @@ export interface EasyPeasyStore {
 
 const initialState = {
   todos: [
-    {
+    /* {
       id: 1,
       title: "This is a todo example",
       completed: false
@@ -22,11 +22,11 @@ const initialState = {
       id: 2,
       title: "This is another todo example",
       completed: false
-    },
+    }, */
   ] as Todo[],
 };
 
-export const store = createStore<EasyPeasyStore>({
+export const store = createStore<EasyPeasyStore>(persist({
   
   ...initialState,
 
@@ -67,4 +67,4 @@ export const store = createStore<EasyPeasyStore>({
       }
     })
   })
-});
+}));
