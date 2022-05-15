@@ -1,4 +1,4 @@
-import { action, Action, ActionMapper, computed, Computed, createStore } from "easy-peasy";
+import { action, Action, computed, Computed, createStore } from "easy-peasy";
 import { Todo } from "../types";
 
 export interface EasyPeasyStore {

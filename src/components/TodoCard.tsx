@@ -21,10 +21,7 @@ export const TodoCard = ({ todo }: Props) => {
     toggleTodo(todo);
   }
   
-  const handleEditing = (todo: Todo) => {
-    setEditing(true)
-  }
-
+  
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if(editTitle) {
@@ -32,15 +29,18 @@ export const TodoCard = ({ todo }: Props) => {
     }
     setEditing(false);
   }
-
+  
   const onChangeEditTitle = (e: React.ChangeEvent<HTMLInputElement>) => {
     setEditTitle(e.target.value);
   }
+  
+  const handleEdit = () => {
+    setEditing(!editing);
 
-  const handleCancelEdit = () => {
-    setEditing(false);
-    setEditTitle('');
-};
+    if(editing === false) {
+      setEditTitle('');
+    }
+  };
 
   return (
     <div
@@ -64,7 +64,7 @@ export const TodoCard = ({ todo }: Props) => {
                 {!todo.completed && (
                   <button 
                     className="m-2 px-4 py-2 mt-3 w-3/12 font-bold text-white bg-green-600 rounded-md hover:bg-green-400"
-                    onClick={() => handleEditing(todo)}
+                    onClick={handleEdit}
                     >Edit
                   </button>
                 )}
@@ -86,7 +86,7 @@ export const TodoCard = ({ todo }: Props) => {
                   <button
                     className="m-2 px-4 py-2 mt-3 w-3/12 font-bold text-white bg-green-600 rounded-md hover:bg-green-400"
                     type="button"
-                    onClick={handleCancelEdit}
+                    onClick={handleEdit}
                   >Cancel</button>
                 </div>
               </form>

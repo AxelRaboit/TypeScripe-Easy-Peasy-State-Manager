@@ -36,7 +36,7 @@ export const EasyPeasyTodos = () => {
         <form onSubmit={handleSubmit}>
           <div className="flex mt-10">
             <input
-              className="px-2 py-1 text-white rounded-md bg-zinc-600 w-full"
+              className="px-4 py-2 text-white rounded-md bg-zinc-600 w-full"
               value={input}
               onChange={(e) => setInput(e.target.value)}
               placeholder="Enter a task"
