@@ -11,7 +11,7 @@ export const TodoCard = ({ todo }: Props) => {
   const { deleteTodo, toggleTodo, updateTodo } = useStoreActions((store) => store);
 
   const [editing, setEditing] = useState<boolean>(false);
-  const [editTitle, setEditTitle] = useState<string>();
+  const [editTitle, setEditTitle] = useState<string>('');
 
   const handleDelete = (todo: Todo) => {
     deleteTodo(todo);
@@ -20,7 +20,6 @@ export const TodoCard = ({ todo }: Props) => {
   const handleToggle = (todo: Todo) => {
     toggleTodo(todo);
   }
-  
   
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
